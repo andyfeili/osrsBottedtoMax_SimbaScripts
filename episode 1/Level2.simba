@@ -1,0 +1,28 @@
+//This seems ok now but what if we ran it for longer?
+
+var count: Integer = 0;
+
+var ranx, rany: Integer;
+
+begin
+
+  count := 0
+
+  repeat
+    count := count + 1;
+
+    ranx := randomRange(446,483);
+    rany := randomRange(267,308);
+
+
+
+    moveMouse(ranx,rany);
+    wait(10);
+    HoldMouse(ranx,rany, mouse_Left);
+    ReleaseMouse(ranx,rany, mouse_Left);
+
+    //wait(2000);
+
+  until (count > 200)
+
+end.

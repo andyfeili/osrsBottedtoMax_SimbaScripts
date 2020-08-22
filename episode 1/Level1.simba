@@ -1,0 +1,29 @@
+//Problem: clicking on the exact same pixel
+
+var count: Integer = 0;
+
+begin
+
+  count := 0
+
+  repeat
+    count := count + 1;
+
+
+    moveMouse(432,277);
+    wait(10);
+    HoldMouse(432,277, mouse_Left);
+    ReleaseMouse(432,277, mouse_Left);
+
+    //wait(8000);
+
+    moveMouse(507,402);
+    wait(100);
+    HoldMouse(507,402, mouse_Left);
+    ReleaseMouse(507,402, mouse_Left);
+
+    //wait(8000);
+
+  until (count > 10)
+
+end.

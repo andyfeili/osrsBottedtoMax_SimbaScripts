@@ -1,0 +1,45 @@
+//fuzz the edges
+
+var count: Integer = 0;
+
+var ranx, rany,endx,endy: Integer;
+
+function randposition(Mu,Sigma,min,max:Double): Integer;
+var t,g:Double;
+begin
+  t := 2 * PI * Random();
+  g := mu + (sigma * Sqrt(-2 * Ln(Random()))) * Cos(t);
+
+  if (g<min) then
+    g := min;
+  if (g > max) then
+    g := max;
+
+  Result := Round(g);
+end;
+
+
+begin
+
+  count := 0
+
+  repeat
+    count := count + 1;
+
+    ranx := randomRange(446,483);
+    rany := randomRange(267,308);
+
+    endx := randposition(ranx,10,ranx-5*5,ranx+5*5);
+    endy := randposition(rany,10,rany-5*5,rany+5*5);
+
+
+
+    moveMouse(endx,endy);
+    wait(5);
+    HoldMouse(endx,endy, mouse_Left);
+    ReleaseMouse(endx,endy, mouse_Left);
+
+
+  until (count > 500)
+
+end.

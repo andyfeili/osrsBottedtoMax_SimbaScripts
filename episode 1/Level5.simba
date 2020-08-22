@@ -1,0 +1,73 @@
+//dynamially generated ref poitns
+
+var count: Integer = 0;
+
+var ranx, rany,endx,endy,tempx,tempy,option: Integer;
+
+function randposition(Mu,Sigma,min,max:Double): Integer;
+var t,g:Double;
+begin
+  t := 2 * PI * Random();
+  g := mu + (sigma * Sqrt(-2 * Ln(Random()))) * Cos(t);
+
+  if (g<min) then
+    g := min;
+  if (g > max) then
+    g := max;
+
+  Result := Round(g);
+end;
+
+procedure cMouseMoveRock(xpos,ypos:integer);
+begin
+  endx := randposition(xpos,15,xpos-7*7,xpos+7*7);
+  endy := randposition(ypos,15,ypos-7*7,ypos+7*7);
+  moveMouse(endx,endy);
+end;
+
+procedure cMouseclickRock();
+begin
+
+  GetMousePos(tempx, tempy);
+  HoldMouse(tempx, tempy, mouse_Left);
+  ReleaseMouse(tempx, tempy, mouse_Left);
+  wait(1);
+end;
+
+begin
+
+  count := 0 ;
+  //wait(1000);
+
+  repeat
+    count := count + 1;
+
+
+
+   //here
+
+option := randomRange(1,10000);
+  if(option<2000) then
+  begin
+    cMouseMoveRock(916,490);
+    cMouseClickRock();
+  end
+  else if(option<5000) then
+  begin
+    cMouseMoveRock(886,544);
+    cMouseClickRock();
+  end
+  else
+  begin
+    cMouseMoveRock(872,505);
+    cMouseClickRock();
+  end;
+
+
+
+
+
+
+  until (count > 1000)
+
+end.
