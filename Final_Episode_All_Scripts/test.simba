@@ -1,0 +1,26 @@
+program new;
+begin
+ //craft rune
+     wall:= BitmapFromString(10, 10, 'meJzjFo7iFonxCWx2cC3jE8/nE8' +
+        '8FImePSj7JUp+APCmlfF6xNBASz7R1abFybLB2auSXrnbzquaTyJN' +
+        'WruARjRdTrOWTKOCTKOSTLBaUbXf3qQWSQK6HXwOfeBa/ZKm4Yo2h' +
+        'ZYu+eZOtc7OgbBvQZKCUh08dyC7JYgnlNn7JMkG5TgOLZn6pCqAtQ' +
+        'GcADQGawC9ZbmLdBtQiojgdqB2oGGg7UJeLV7WbTy2/VKWAdC1Q3N' +
+        'CqBagYrDELqNHJvYJfqoxPosjetVVQBmSmk1cn0P1APwJdyydRDLQ' +
+        'aiEQUZwEtsnUqAvouMKITGAiJKS2hEeVABUDTeEVTgEYFhLYDzeQG' +
+        'B1FsXCoAoAFNyw==');
+       writeln('trying to find');
+       If (FindBitmapToleranceIn(wall, X, Y,152,128,279,219,20)) Then //This will search the screen for the bitmap
+       begin
+         // Y := Y + 3;
+         // X := X - 3;
+          cMouseMove(X,Y);
+          cMouseclick();
+          found := 1;
+        end
+        Else
+        Writeln('Could not find altar'); //Tells us we didn't find it
+
+        FreeBitmap(wall);
+
+end.
